@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="./images/auction.png" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>E-Auction</title>
+  <style>
+    .image-container{
+      padding: 10%;
+      display: flex;
+    }
+    .image-content{
+      padding-top: 5%;
+      padding-left: 5%;
+    }
+  </style>
+  <script type="text/javascript">
+    var inputArray = [];
+    var input = document.getElementById('inputbox');
+    var screen = document.getElementById('screen');
+    function bid() {
+      inputArray.push(input.value);
+      screen.innerHTML = input.value;
+      screen.innerHTML = inputArray;
+    }
+  </script>
+</head>
+<body id="body1">
+<header>
+	<h1 align="center">Online Auction</h1>
+	<h2>Bidding Section</h2>
+</header>
+<div class="image-container">
+	<div class="image">
+  		<img id="myimage" src="./images/All Sales.png" width="400" height="340">
+	</div>
+	<div class="image-content">
+    <p>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span>Telescope</span></p>
+    <p>Brand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span>Ocean Crafts</span></p>
+    <p>Description:<span>Ocean Crafts Vintage Brass Telescope Victorian 1915 | Nautical | Antique | Functional | with Wooden Gift Box | 20 Inch</span></p>
+    <p>Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<span>1500Rs.</span></p>
+		<div class="Form">
+    <h2 style="color: red;">Enter Bid Amount:</h2>
+    <input type="text" name="bidamt" id="inputbox">
+		<input type="button" name="bid" value="bid" class="botton_2" onclick ="bid()">
+    <div id="screen"></div>
+    </div>
+	</div>
+</div>
+<footer>
+	<h3>Copyright &copy; All Rights Reserved.</h3>
+</footer>
+</body>
+</html>

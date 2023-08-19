@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>virtual class</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+#mydiv {
+  width: 300px;
+  height: 1px;
+  box-shadow: 10px 10px 10px #fff; 
+  animation: myove 5s infinite;
+  color:#fff;
+  font-size:2.5em;
+  font-variant:small-caps;
+  position:absolute;
+  left:5in; 
+  padding: 1em;
+  border: 1px solid yellow;
+  border-radius: 1cm;
+  background-image: -webkit-radial-gradient(white,blue);
+  text-decoration:overline;
+}
+@keyframes myove {
+  50% {box-shadow: 10px 10px 30px  yellow;}
+  50%{color:yellow;}
+ 50%{background-image: -webkit-radial-gradient(yellow,blue);}
+}
+body{
+background-color: HSL(360, 100%, 90%);
+}
+#myImg {
+  width: 650px;
+  height: 420px;
+  object-fit: cover;
+  object-position: 0% 0%;
+  animation: mymove 5s infinite;
+}  
+#myImg1 {
+  width: 671px;
+  height: 420px;
+  object-fit: cover;
+  object-position: 0% 0%;
+  animation: mymove 5s infinite;
+}  
+@keyframes mymove {
+  0% {
+    object-position: 0% 0%;
+  }
+  25% {
+    object-position: 20% 0%;
+  }
+ 50%{
+    object-position:30% 50%;
+  }
+  100% {
+    object-position: 100% 100%;
+  }
+}
+.button { 
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #ff2edc;
+  border:solid;
+  border-color:#2effe3;
+  border-radius: 15px;
+  box-shadow: 0 9px #f8c0f6;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+.form-container .cancel {
+  background-color: red;
+}
+.form-container .btn:hover {
+  opacity: 1;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+</style>
+</head>
+<body>
+<div align="center" id="mydiv">Virtual Class</div><br><br><br><br></div>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">More 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
+<img align="justify" src="Snip20190317_97.png" alt="image1" id="myImg">&nbsp;&nbsp;&nbsp;<img align="justify"src="img2.jpg" alt="img2" id="myImg1"><br><br>
+<center><button class="button">Create</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="button" onclick="openForm()">Join</button></center>
+<div class="form-popup" id="my">
+<form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+<script>
+function openForm() {
+  document.getElementById("my").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("my").style.display = "none";
+}
+</script>
+</body>
+</html>
